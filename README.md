@@ -1,4 +1,4 @@
 # Kaiser
-Fileless persistence, attacks and anti-forensic capabilties.
+File-less persistence, attacks and anti-forensic capabilities.
 
 Coming soon to a repo near you!
