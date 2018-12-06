@@ -18,13 +18,13 @@ Related paper: https://github.com/NtRaiseHardError/NtRaiseHardError.github.io/bl
 4. Run _BuildKaiser.ps1_ to build the _Installer.ps1_ script
 5. Run the _Installer.ps1_ script with administrative privileges on the target machine
 
-# Known bugs:
+## Known bugs:
 
 * Threaded `XxxNetSend` sends will buffer (reason unknown)
 * `PurgeXxx` functions are not guaranteed to work (perhaps this is because it uses `ShellExecuteEx`
 * More?
 
-# TODO
+## TODO
 
 * `CommandPrintStatus` to print the status of Kaiser?
 * Convert functions in `firewall.c` to WinAPI
