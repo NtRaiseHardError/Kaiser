@@ -7,18 +7,16 @@ Related paper: https://github.com/NtRaiseHardError/NtRaiseHardError.github.io/bl
 
 **This project is discontinued.**
 
-## How to Build:
+## How to Build/Use:
 
 1. Compile _Kaiser.dll_ in Release mode
-2. Run _BuildKaiser.ps1_
-
-## How to Use:
-
-1. Run _BuildKaiser.ps1_ to build the _Payload.ps1_ script
-2. Upload the _Payload.ps1_ script such that it can be directly downloaded as raw text
-3. Update the _BuildKaiser.ps1_ script to include the URL of _Payload.ps1_
-4. Run _BuildKaiser.ps1_ to build the _Installer.ps1_ script
-5. Run the _Installer.ps1_ script with administrative privileges on the target machine
+2. Upload _Kaiser.dll_ such that it can be directly downloaded as a raw binary
+3. Update the _BuildKaiser.ps1_ script to include the URL for _Kaiser.dll_
+4. Run _BuildKaiser.ps1_ to build the _Payload.ps1_ script
+5. Upload the _Payload.ps1_ script such that it can be directly downloaded as raw text
+6. Update the _BuildKaiser.ps1_ script to include the URL of _Payload.ps1_
+7. Run _BuildKaiser.ps1_ to build the _Installer.ps1_ script
+8. Run the _Installer.ps1_ script with administrative privileges on the target machine
 
 ## Known bugs:
 
