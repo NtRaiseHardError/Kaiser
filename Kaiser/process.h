@@ -8,9 +8,9 @@
 
 #ifdef _DEBUG
 // TODO Revert to conhost
-#define CHILD_EXE L"\\rundll32.exe"
+#define CHILD_EXE L"\\conhost.exe"
 #else
-#define CHILD_EXE L"\\rundll32.exe"
+#define CHILD_EXE L"\\svchost.exe"
 #endif // _DEBUG
 
 // https://processhacker.sourceforge.io/doc/ntbasic_8h.html

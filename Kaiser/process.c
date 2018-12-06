@@ -116,7 +116,7 @@ ULONG ProcessCreateReflective(LPCBYTE lpBytes, LPWSTR lpArguments, LPPROCESS_INF
 	GetSystemDirectory(szSysDirectory, MAX_PATH);
 
 	// Append child
-	SIZE_T nChildProcLen = wcslen(szSysDirectory) + wcslen(CHILD_EXE) + sizeof(WCHAR);
+	SIZE_T nChildProcLen = wcslen(szSysDirectory) + wcslen(CHILD_EXE) + 1;
 	LPWSTR szChildProc = _HeapAlloc(HEAP_ZERO_MEMORY, sizeof(WCHAR) * nChildProcLen);
 	if (szChildProc == NULL) {
 		return (ULONG)-1;

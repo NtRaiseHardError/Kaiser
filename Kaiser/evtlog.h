@@ -9,12 +9,14 @@
 #define EVTLOG_BANNER L"[EVTLOG]"
 
 typedef enum _EVTLOG_ACTION {
-	EVTLOG_DISABLE,
-	EVTLOG_ENABLE,
+	EVTLOG_PATCH,
+	EVTLOG_UNPATCH,
+	EVTLOG_SUSPEND,
+	EVTLOG_RESUME
 } EVTLOG_ACTION;
 
 BOOL EvtlogClear(LPCWSTR szEventLogName);
-BOOL EvtlogAction(EVTLOG_ACTION eAction);
+BOOL EvtlogAction(CONST EVTLOG_ACTION eAction);
 ULONG EvtlogMain(INT argc, LPWSTR *argv);
 
 #endif // !__EVTLOG_H__

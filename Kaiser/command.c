@@ -139,7 +139,8 @@ static INT CommandReceiver(CONST SOCKET g_Socket) {
 		PrivilegeIsLocalSystem(&bIsSystem);
 	}
 
-	Send(g_Socket, KAISER_BANNER);
+	//Send(g_Socket, KAISER_BANNER);
+	send(g_Socket, KAISER_BANNER, strlen(KAISER_BANNER), 0);
 	if (bIsSystem) {
 		Send(g_Socket, L"Privilege level: SYSTEM.\n\n");
 	} else if (bIsAdmin) {

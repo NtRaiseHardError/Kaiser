@@ -6,6 +6,7 @@
 #include "shell.h"
 #include "utils.h"
 
+// This needs a lock.
 static HANDLE g_hProcess = NULL;
 static LPWSTR lpAddress = NULL;
 static LPWSTR lpPort = NULL;
