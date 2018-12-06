@@ -1,5 +1,5 @@
 # Kaiser
-File-less persistence, attacks and anti-forensic capabilities.
+File-less persistence, attacks and anti-forensic capabilities against Windows 7 32-bit.
 
 **NOTE**: This project was **NOT** designed to evade AV detection.
 
