@@ -1,9 +1,11 @@
 # Kaiser
 File-less persistence, attacks and anti-forensic capabilities.
 
-**This project is discontinued.**
+**NOTE**: This project was **NOT** designed to evade AV detection.
 
 Related paper: https://github.com/NtRaiseHardError/NtRaiseHardError.github.io/blob/master/_posts/2018-12-06-Anti-forensic-Malware-and-File-less-Malware.md
+
+**This project is discontinued.**
 
 ## How to Build:
 
